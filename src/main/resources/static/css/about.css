@@ -1,110 +1,115 @@
-body{
-    background: linear-gradient(to left,pink,white);
-    height: 100vh;
-    margin: 0; 
-}
-#pic1{
-    position: absolute;
-    right:10%;
-    top: 18%;
-    border-radius: 150px;
-    display: block;
-    height: 250px;
-    width: 250px;
-    object-fit: cover;
-}
-#intro{
-    position: absolute;
-    left:10%;
-    top: 25%;
-    width: 50%;
-    margin: 0 auto; 
-    text-align: justify;
-    font-style:italic;
-    font-size: larger;
-}
-#introhead{
-    position: absolute;
-    left:8%;
-    top: 10%;
-    font-size: 30px;
-    font-style: bold;
-    font-family:Arial, Helvetica, sans-serif
-}
-#missionhead{
-    position: absolute;
-    right:55%;
-    top: 70%;
-    font-size: 30px;
-    font-style: bold;
-    font-family:Arial, Helvetica, sans-serif
-}
-#mission{
-    position: absolute;
-    right:10%;
-    top: 85%;
-    width: 50%;
-    margin: 0 auto; 
-    text-align: justify;
-    font-style:italic;
-    font-size: larger;
-}
-#pic2{
-    position: absolute;
-    left:10%;
-    top: 85%;
-    border-radius: 150px;
-    display: block;
-    height: 250px;
-    width: 250px;
-    object-fit: cover;
-}
-#missionpoints{
-    position: absolute;
-    right:5%;
-    top: 105%;
-    width: 50%;
-    margin: 0 auto; 
-    text-align: justify;
-    font-style:italic;
-    font-size: larger;
-}
-#pic3{
-    position: absolute;
-    right:10%;
-    top: 155%;
-    border-radius: 120px;
-    display: block;
-    height: 250px;
-    width: 250px;
-    object-fit: cover;
-}
-#vissionhead{
-    position: absolute;
-    left:8%;
-    top: 140%;
-    font-size: 30px;
-    font-style: bold;
-    font-family:Arial, Helvetica, sans-serif
-}
-#vission{
-    position: absolute;
-    left:10%;
-    top: 155%;
-    width: 50%;
-    margin: 0 auto; 
-    text-align: justify;
-    font-style:italic;
-    font-size: larger;
-}
-#vissionpoints{
-    position: absolute;
-    left:12%;
-    top: 170%;
-    width: 50%;
-    margin: 0 auto; 
-    text-align: justify;
-    font-style:italic;
-    font-size: larger;
-}
+ body {
+	 		 background: linear-gradient(to right, #fff5f7, #FFB347);
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
 
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding: 15px 30px;
+            background-color: white;
+            
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo .icon {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .logo .brand {
+            font-size: 24px;
+            font-family: 'Pacifico', cursive;
+            color: #EC8F18;
+        }
+
+        .navbar .nav-link {
+            margin-left: 20px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-link:hover {
+            color: #ffa500;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+       
+        }
+
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .section img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section img:hover {
+            transform: scale(1.05);
+        }
+
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #EC8F18;
+            border-left: 6px solid #EC8F18;
+            padding-left: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 18px;
+            line-height: 1.5;
+        }

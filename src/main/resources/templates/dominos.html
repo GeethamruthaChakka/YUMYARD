@@ -1,147 +1,145 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/yummy.css">
-    <title>Yummy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <title>Dominos</title>
+   <link rel="stylesheet" href="/css/dominos.css"> 
+  <title>Dominos</title>
 </head>
 <body>
-    <h1 id="head">Dominos</h1>
-    <p id="subtitle">Veg | Non-veg | Chinese | Softdrinks</p>
+  <header class="header">
+        <div class="logo">
+            <img src="https://icon-library.com/images/food-app-icon/food-app-icon-0.jpg" alt="Logo" class="icon" />
+            <span class="brand">YumYard</span>
+        </div>
+        <nav class="navbar">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/menu" class="nav-link">Menu</a>
+            <a href="/signup" class="nav-link">Sign Up</a>
+            <a href="/login" class="nav-link">Login</a>
+            <a href="/about" class="nav-link">About</a>
+            <a href="/contact" class="nav-link">Contact</a>
+            <a href="/admin" class="nav-link">Admin</a>
+        </nav>
+    </header>
+  <h1 id="head">Domino's</h1>
+  <p id="subtitle">Veg | Non-veg | Chinese | Softdrinks</p>
 
-    <div id="cart-count"><span id="count"></span></div>
+  <!-- VEG SECTION -->
+  <div class="section">
+    <div class="section-header veg-section-header">🌱 Veg Items</div>
+    <div class="food-container">
+      <script>
+        const vegItems = [
+          ["Cheese Margherita", 100, "https://www.dominos.co.in/files/items/Double_Cheese_Margherita.jpg"],
+          ["Golden Corn Pizza", 120, "https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/HomeProductV1/19b2ce12-7015-41db-9da4-4493dd6ab97f_PMGoldenCornHome.jpg"],
+          ["Paneer Tikka Pizza", 150, "https://cdn.dotpe.in/longtail/store-items/7702259/5hm8tHVN.webp"],
+          ["Veggie Supreme", 140, "https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900"],
+          ["Farmhouse Pizza", 130, "https://www.dominos.co.in/files/items/Farmhouse.jpg"],
+          ["Mexican Green Wave", 125, "https://www.dominos.co.in/files/items/Mexican_Green_Wave.jpg"],
+          ["Deluxe Veggie", 135, "https://www.dominos.co.in/files/items/Deluxe_Veggie.jpg"],
+          ["Peppy Paneer", 140, "https://www.dominos.co.in/files/items/Peppy_Paneer.jpg"],
+          ["Fresh Veggie", 110, "https://www.dominos.co.in/files/items/Fresh_Veggie.jpg"],
+          ["Mushroom Mania Pizza", 90, "https://tse2.mm.bing.net/th?id=OIP.itcS4b16LYheE11f5kJeVwHaE8&pid=Api&P=0&h=180"],
+          ["Tomato Basil", 145, "https://tse3.mm.bing.net/th?id=OIP.I3lqmUNYaMLiXkB1vJs7OwHaFj&pid=Api&P=0&h=180"],
+          ["Garden Fresh Pizza", 150, "https://tse1.mm.bing.net/th?id=OIP.vJ_Z7BlWPmXtYEN7cnLWEwHaE7&pid=Api&P=0&h=180"],
+        ];
 
-    <!-- Veg Section -->
-    <p id="veg">Veg</p>
-    <div class="veg-image-container">
-        <div class="food-item">
-            <img src="https://www.dominos.co.in/files/items/Double_Cheese_Margherita.jpg" alt="Food 1" class="food-image">
-            <p>Cheese Margarita  | ₹100</p>
-            <button class="add-to-cart" data-name="Cheese Balls" data-price="100" onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/HomeProductV1/19b2ce12-7015-41db-9da4-4493dd6ab97f_PMGoldenCornHome.jpg" alt="Food 2" class="food-image">
-            <p>Corn n cheese Pizza | ₹180</p>
-            <button class="add-to-cart" data-name="Mushroom Tikka" data-price="180"onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://www.hotstuffpizzaonline.com/SiteContent/Images/HomePageHeader/HomePageHeader_1184_54690.jpg" alt="Hot Stuff Pizza" class="food-image">
-            <p>Mixed veg pizza | ₹150</p>
-            <button class="add-to-cart" data-name="Veggie Kebab" data-price="150"onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-             <img src="https://cdn.dotpe.in/longtail/store-items/7702259/5hm8tHVN.webp" alt="Peppy Paneer Pizza" class="food-image">
-            <p>Paneer Capsicum pizza | ₹80</p>
-            <button class="add-to-cart" data-name="Corn Chaat" data-price="80"onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-U40Gc3AD7HsbX_jKBMRRjpJeOoj8FYcnuChfM3KAzBs1NKWTENsWepoM0mg3codVwU4&usqp=CAU" alt="BBQ Chicken Pizza" class="food-image">
-            <p>Spicy veggie pizza | ₹50</p>
-            <button class="add-to-cart"data-name="Gobi Manchurian" data-price="50" onclick="toggleCart(this)">Add to Cart</button>
-        </div>
+        const nonVegItems = [
+          ["Pepperoni Pizza", 180, "https://www.aberdeenskitchen.com/wp-content/uploads/2020/08/Cheesy-Pepperoni-Mushroom-Pizza-3.jpg"],
+          ["Jamaican Chicken", 160, "https://www.orchidsandsweettea.com/wp-content/uploads/2019/10/Jerk-Chicken-Pizza-6-of-7.jpg"],
+          ["Salami Pizza", 170, "https://img.freepik.com/premium-photo/hot-meat-pizza-with-salami-cheese-tomato-sauce-wooden-table_2829-20256.jpg"],
+          ["Meatball Pizza", 190, "https://www.flavcity.com/wp-content/uploads/2018/06/meatballs-tomato-sauce.jpg"],
+          ["Chicken Tikka Pizza", 160, "https://www.dominos.co.in/files/items/Chicken_Tikka.jpg"],
+          ["Chicken BBQ Pizza", 165, "https://tse1.mm.bing.net/th?id=OIP.uh49fgosdEuIpoygRm3aQgHaJQ&pid=Api&P=0&h=180"],
+          ["Ham and Pineapple (Hawaiian) Pizza", 170, "https://thumbs.dreamstime.com/b/hawaiian-pizza-pineapple-ham-cheese-wooden-table-slice-254874844.jpg"],
+          ["Chicken Sausage", 150, "https://www.dominos.co.in/files/items/Chicken_Sausage.jpg"],
+          ["Bacon Cheeseburger Pizza", 175, "https://tse4.mm.bing.net/th?id=OIP.aATRzkXzZi6lHBT0gYO8KgHaE8&pid=Api&P=0&h=180"],
+          ["Shrimp Scampi Pizza", 160, "https://tse4.mm.bing.net/th?id=OIP.JoEYSkZ9Il8wAyDa1UVE2wHaE8&pid=Api&P=0&h=180"],
+          ["Spicy Chicken Pizza", 185, "https://tse2.mm.bing.net/th?id=OIP.4sJ5nDZZsr6K3p_Mfg7xGgHaHa&pid=Api&P=0&h=180"],
+        ];
+
+        function renderItems(items) {
+          return items.map(([name, price, image]) => `
+            <div class="food-item">
+              <img src="${image}" class="food-image" />
+              <p>${name} | ₹${price}</p>
+              <button class="add-to-cart" data-name="${name}" data-price="${price}" onclick="toggleCart(this)">Add to Cart</button>
+            </div>
+          `).join('');
+        }
+
+        document.write(renderItems(vegItems));
+      </script>
     </div>
+  </div>
 
-    <!-- Non-Veg Section -->
-    <p id="nonveg">Non-Veg</p>
-    <div class="nonveg-image-container">
-        <div class="food-item">
-             <img src="https://www.aberdeenskitchen.com/wp-content/uploads/2020/08/Cheesy-Pepperoni-Mushroom-Pizza-3.jpg" alt="Cheesy Pepperoni Mushroom Pizza" class="food-image">
-            <p>Cheesy Mushroom Pizza | ₹200</p>
-            <button class="add-to-cart"data-name="Chicken Spring Rolls" data-price="200" onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4-s4o0SbrVlU8Xl99LThjIe3WYa_TQpnsG_8ujRFun7ywSQ545XyaGZNs7kE4CIiDdFA&usqp=CAU" alt="Chicken Supreme Pizza" class="food-image">
-            <p>Chicken Supreme Pizza | ₹250</p>
-            <button class="add-to-cart" data-name="Chicken Manchurian" data-price="250"onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://www.flavcity.com/wp-content/uploads/2018/06/meatballs-tomato-sauce.jpg" alt="Meat Balls" class="food-image">
-            <p>Hot stuff pizza | ₹450</p>
-            <button class="add-to-cart" data-name="Meat Balls" data-price="450"onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://www.orchidsandsweettea.com/wp-content/uploads/2019/10/Jerk-Chicken-Pizza-6-of-7.jpg" alt="Jamaican Jerk Chicken Pizza" class="food-image">
-            <p>Jamaican chicken pizza | ₹120</p>
-            <button class="add-to-cart"data-name="Chicken Samosa" data-price="120" onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-U40Gc3AD7HsbX_jKBMRRjpJeOoj8FYcnuChfM3KAzBs1NKWTENsWepoM0mg3codVwU4&usqp=CAU" alt="BBQ Chicken Pizza" class="food-image">
-            <p>BBQ Chicken Pizza | ₹280</p>
-            <button class="add-to-cart"data-name="Chicken Majestic" data-price="280" onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-
+  <!-- NON-VEG SECTION -->
+  <div class="section">
+    <div class="section-header nonveg-section-header">🍗 Non-Veg Items</div>
+    <div class="food-container">
+      <script>
+        document.write(renderItems(nonVegItems));
+      </script>
     </div>
-	
-	<div class="checkout">
-	        <button class="check-out" onclick="proceedToCheckout()">Proceed To Check Out</button>
-	    </div>
+  </div>
 
-			    
+  <div class="checkout">
+    <button class="check-out" onclick="proceedToCheckout()">Proceed To Check Out</button>
+  </div>
 
+  <script>
+    function toggleCart(button) {
+      if (button.innerText === 'Add to Cart') {
+        button.innerHTML = `
+          <div class="cart-controls">
+            <button onclick="decreaseCount(this)">-</button>
+            <span class="cart-count">1</span>
+            <button onclick="increaseCount(this)">+</button>
+          </div>
+        `;
+      }
+    }
 
-	<script>
-	    function toggleCart(button) {
-	        const currentButton = button;
-	        if (currentButton.innerText === 'Add to Cart') {
-	            currentButton.innerHTML = `
-	                <button onclick="decreaseCount(this)">-</button>
-	                <span class="cart-count">0</span>
-	                <button onclick="increaseCount(this)">+</button>
-	            `;
-	        }
-	    }
+    function decreaseCount(btn) {
+      const span = btn.nextElementSibling;
+      let count = parseInt(span.innerText);
+      if (count > 1) {
+        count--;
+        span.innerText = count;
+      } else {
+        const parent = btn.closest('.add-to-cart');
+        parent.innerHTML = 'Add to Cart';
+      }
+    }
 
-	    function decreaseCount(button) {
-	        const countSpan = button.nextElementSibling;
-	        let currentCount = parseInt(countSpan.innerText);
-	        
-	        // Decrease count if greater than 0
-	        if (currentCount > 0) {
-	            currentCount--;
-	            countSpan.innerText = currentCount;
-	        }
+    function increaseCount(btn) {
+      const span = btn.previousElementSibling;
+      let count = parseInt(span.innerText);
+      span.innerText = ++count;
+    }
 
-	        // If count reaches 0, revert to 'Add to Cart'
-	        if (currentCount === 0) {
-	            const parentButton = button.parentElement;
-	            parentButton.innerHTML = 'Add to Cart';
-	        }
-	    }
+    function proceedToCheckout() {
+      const items = [];
+      const buttons = document.querySelectorAll('.add-to-cart');
 
-	    function increaseCount(button) {
-	        const countSpan = button.previousElementSibling;
-	        let currentCount = parseInt(countSpan.innerText);
-	        currentCount++;
-	        countSpan.innerText = currentCount;
-	    }
-		
-		function proceedToCheckout() {
-		        const cartButtons = document.querySelectorAll('.add-to-cart');
-		        let cartItems = [];
+      buttons.forEach(btn => {
+        if (btn.innerText !== 'Add to Cart') {
+          const name = btn.getAttribute('data-name');
+          const price = parseInt(btn.getAttribute('data-price'));
+          const count = parseInt(btn.querySelector('.cart-count').innerText);
+          items.push({ name, quantity: count, price: price * count });
+        }
+      });
 
-		        cartButtons.forEach((button) => {
-		            let currentText = button.innerText;
-
-		            if (currentText !== 'Add to Cart') {
-		                let number = parseInt(currentText.match(/\d+/)[0]);
-		                let itemName = button.getAttribute('data-name');
-		                let itemPrice = parseInt(button.getAttribute('data-price')) * number; // Example: replace with actual price logic
-
-		                cartItems.push({ name: itemName, quantity: number, price: itemPrice});
-		            }
-		        });
-
-		        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-		        window.location.href = '/checkout'; // Redirect to the next page (checkout page)
-		    }
-	</script>
-	
-
-
+      localStorage.setItem('cartItems', JSON.stringify(items));
+    
+      window.location.href = '/checkout';
+    }
+  </script>
+  <footer>
+        <p>© 2025 YUMYARD. All rights reserved.</p>
+    </footer>
 </body>
 </html>

@@ -1,79 +1,183 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-.navbar ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+/* General Body */
+* {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+    .header {
     display: flex;
-    background: rgb(215, 215, 215);
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 15px 30px;
 }
-.navbar li{
-    margin-left: 10px;
+
+.logo {
+    display: flex;
+    align-items: center;
 }
-.navbar a{
-    display: block;
+
+.logo .icon {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo .brand {
+    font-size: 24px;
+    font-family: 'Pacifico', cursive;
+    color: #EC8F18;
+}
+
+.navbar .nav-link {
+    margin-left: 20px;
+    text-decoration: none;
     color: black;
-    padding: 14px 20px;
-    text-decoration: none;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size:15px;
-}
-.navbar a:hover{
-    background-color: rgb(255, 133, 11);
-}
-header {
-    background-color: #ffffff;
-    padding: 10px 0;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-.p{
-    margin-top:80px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size:large;
-    margin-left: 80px;
-}
-.p1{
-    margin-top:20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 800;
-    font-size:xx-large;
-    margin-left: 80px;
-}
-.text{
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    text-decoration: none;
-    color:black;
-    margin-top:10px;
+.navbar .nav-link:hover {
+    color: #ffa500;
 }
 
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-weight: 700;
+      color: #ffa500;
+      font-size: 1.8rem;
+      letter-spacing: 1.2px;
+    }
+    nav a {
+      margin-left: 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffa500;
+    }
+
+/* Navbar */
+
+/* Story Section */
+.p {
+    margin-top: 80px;
+    margin-left: 80px;
+    font-family: 'Impact', sans-serif;
+    font-size: 26px;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.p1 {
+    margin-top: 10px;
+    margin-left: 80px;
+    font-size: 34px;
+    font-weight: bold;
+    color: #ff7f27;
+}
+
+/* Dishes Section */
 #dishes {
     text-align: center;
-    padding: 10px 10px;
+    padding: 40px 20px;
+}
+
+#dishes h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
 }
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
 }
 
 .image-item {
-    background-color: #f4f4f4;
+    background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px #ffa500;
 }
 
 .image-item img {
     width: 100%;
-    border-radius: 5px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
-footer {
-    background-color: #333;
+/* Button Text */
+.text {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff7f27;
     color: white;
-    text-align: center;
-    padding: 10px 0;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    transition: background-color 0.3s ease;
 }
+
+.text:hover {
+    background-color: #e65c00;
+}
+
+/* Description */
+.image-item p {
+    margin-top: 10px;
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Footer */
+ footer {
+      background: #EC8F18;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+    }

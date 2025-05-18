@@ -3,24 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/contact.css">
-    <title>Document</title>
+    <title>Contact Us - YumYard</title>
+    <link rel="stylesheet" href="/css/contact.css" />
 </head>
 <body>
-    <img id="page"src="https://famousindianrecipes.com/wp-content/uploads/2015/06/contact-us.jpg"/>
+   <header class="header">
+        <div class="logo">
+            <img src="https://icon-library.com/images/food-app-icon/food-app-icon-0.jpg" alt="Logo" class="icon" />
+            <span class="brand">YumYard</span>
+        </div>
+        <nav class="navbar">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/menu" class="nav-link">Menu</a>
+            <a href="/signup" class="nav-link">Sign Up</a>
+            <a href="/login" class="nav-link">Login</a>
+            <a href="/about" class="nav-link">About</a>
+            <a href="/contact" class="nav-link">Contact</a>
+            <a href="/admin" class="nav-link">Admin</a>
+        </nav>
+    </header>
+    
+    <img id="page" src="https://famousindianrecipes.com/wp-content/uploads/2015/06/contact-us.jpg"/>
+    
     <div class="container">
         <p id="text">GET IN TOUCH</p>
         <div class="underline"></div>
-        <p id="text2">You have a piece of advice or a suggestion that you would like to share with us?</br>Feel free to contact us.</p>
-        <form>
+        <p id="text2">You have a piece of advice or a suggestion that you would like to share with us?<br>Feel free to contact us.</p>
+        
+        <form id="contactForm">
             <label for="name" class="label-bold">Name</label>
-            <input type="text" id="name" class="input-field" placeholder="Enter your name" required>
+            <input type="text" id="name" name="name" class="input-field" placeholder="Enter your name" required>
+            
             <label for="email" class="label-bold">Email</label>
-            <input type="email" id="email" class="input-field" placeholder="Your Email Address" required>
+            <input type="email" id="email" name="email" class="input-field" placeholder="Your Email Address" required>
+            
             <label for="message" class="label-bold">Message</label>
-            <textarea id="message" class="textarea-field" placeholder="Your Message" required></textarea>            
+            <textarea id="message" name="message" class="textarea-field" placeholder="Your Message" required></textarea>
+            
             <button type="submit" class="submit">Submit</button>
         </form>
+        
+        <div id="formResponse" style="display: none; margin-top: 20px; text-align: center;"></div>
     </div>
+    
+    <div id="submissions">
+        <h2 style="text-align: center; color: #EC8F18;">Recent Messages</h2>
+        <div id="submissionsList"></div>
+    </div>
+
+    <script>
+		document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    const responseDiv = document.getElementById('formResponse');
+    const submissionsList = document.getElementById('submissionsList');
+    
+    // Load and display previous submissions
+    displaySubmissions();
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value,
+            date: new Date().toLocaleString()
+        };
+        
+        // Save to localStorage
+        saveSubmission(formData);
+        
+        // Show success message
+        responseDiv.style.display = 'block';
+        responseDiv.style.color = 'green';
+        responseDiv.textContent = 'Thank you! Your message has been submitted.';
+        
+        // Clear form
+        form.reset();
+        
+        // Refresh submissions list
+        displaySubmissions();
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            responseDiv.style.display = 'none';
+        }, 5000);
+    });
+    
+    function saveSubmission(data) {
+        let submissions = JSON.parse(localStorage.getItem('contactSubmissions')) || [];
+        submissions.push(data);
+        localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+    }
+    
+    function displaySubmissions() {
+        const submissions = JSON.parse(localStorage.getItem('contactSubmissions')) || [];
+        submissionsList.innerHTML = '';
+        
+        if (submissions.length === 0) {
+            submissionsList.innerHTML = '<p style="text-align: center;">No messages yet.</p>';
+            return;
+        }
+        
+        // Display only the last 5 submissions (most recent first)
+        submissions.slice().reverse().slice(0, 5).forEach(sub => {
+            const div = document.createElement('div');
+            div.className = 'submission';
+            div.innerHTML = `
+                <p><strong>Name:</strong> ${sub.name}</p>
+                <p><strong>Email:</strong> ${sub.email}</p>
+                <p><strong>Message:</strong> ${sub.message}</p>
+                <p><small>${sub.date}</small></p>
+            `;
+            submissionsList.appendChild(div);
+        });
+    }
+});
+	</script>
 </body>
 </html>

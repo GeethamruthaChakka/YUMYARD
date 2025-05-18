@@ -1,144 +1,147 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/yummy.css">
-    <title>Yummy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <title>KFC</title>
+   <link rel="stylesheet" href="/css/dominos.css"> 
+  <title>KFC</title>
 </head>
 <body>
-    <h1 id="head">KFC</h1>
-    <p id="subtitle">Veg | Non-veg | Chinese | Softdrinks</p>
+  <header class="header">
+        <div class="logo">
+            <img src="https://icon-library.com/images/food-app-icon/food-app-icon-0.jpg" alt="Logo" class="icon" />
+            <span class="brand">YumYard</span>
+        </div>
+        <nav class="navbar">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/menu" class="nav-link">Menu</a>
+            <a href="/signup" class="nav-link">Sign Up</a>
+            <a href="/login" class="nav-link">Login</a>
+            <a href="/about" class="nav-link">About</a>
+            <a href="/contact" class="nav-link">Contact</a>
+            <a href="/admin" class="nav-link">Admin</a>
+        </nav>
+    </header>
+  <h1 id="head">KFC</h1>
+  <p id="subtitle">Veg | Non-veg | Chinese | Softdrinks</p>
 
-    <div id="cart-count"><span id="count"></span></div>
+  <!-- VEG SECTION -->
+  <div class="section">
+    <div class="section-header veg-section-header">🌱 Veg Items</div>
+    <div class="food-container">
+      <script>
+        const vegItems = [
+  ["Veg Zinger Burger", 120, "https://tse3.mm.bing.net/th?id=OIP.yqG8YTTc9WY-KZrMkS5opQHaE6&pid=Api&P=0&h=180"],
+  ["Veg Strips Bucket", 300, "https://tse1.mm.bing.net/th?id=OIP.06jLNlV3PWzeOrhfpBpu_gHaFd&pid=Api&P=0&h=180"],
+  ["Veg Nuggets", 150, "https://tse3.mm.bing.net/th?id=OIP.zMvPnbHci9S99IsdxqAl8gHaEJ&pid=Api&P=0&h=180"],
+  ["Paneer Zinger", 140, "https://i.ytimg.com/vi/ebSRS9ea4fA/maxresdefault.jpg"],
+  ["Veg Rice Bowl", 110, "https://www.joyousapron.com/wp-content/uploads/2019/01/Easy-Mixed-Vegetable-Rice-Pic-2.jpg"],
+  ["Veg Wrap", 130, "https://tse1.mm.bing.net/th?id=OIP.qZemeD_YyLNTxMbmBZNxIgHaKI&pid=Api&P=0&h=180"],
+  ["Veg Bucket Combo", 450, "https://tse2.mm.bing.net/th?id=OIP.lOIjHXNO1nFlwM5wpbFXLQHaE8&pid=Api&P=0&h=180"],
+  ["Crispy Veg Patty", 125, "https://tse2.mm.bing.net/th?id=OIP.SuXyGfsvaZWJ4zUd1ZAKfgHaEK&pid=Api&P=0&h=180"],
+  ["Veg Popcorn", 90, "https://wowitsveggie.com/wp-content/uploads/2020/05/vegan-popcorn-create-1333x900.jpg"],
+  ["Veg Zinger Wrap", 135, "https://tse4.mm.bing.net/th?id=OIP.jGOEegizRzs3D7SY-sOy6wHaEc&pid=Api&P=0&h=180"],
+  ["Crispy Veg Burger", 125, "https://i2.wp.com/www.cookingfromheart.com/wp-content/uploads/2016/11/Vegetable-Zinger-Burger-5.jpg?resize=1024%2C739"],
+  ["Veg Salad Bowl", 110, "https://tse1.mm.bing.net/th?id=OIP.BCeDCVzCyX1SgdueXp7_KAHaE8&pid=Api&P=0&h=180"]
+];
 
-    <!-- Veg Section -->
-    <p id="veg">Veg</p>
-    <div class="veg-image-container">
-        <div class="food-item">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/202/1e3a1e21457075.551b9411533ca.jpg" alt="Food 1" class="food-image">
-            <p>Corn Cups | ₹100</p>
-            <button class="add-to-cart" data-name="Cheese Balls" data-price="100" onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://images.ctfassets.net/wtodlh47qxpt/6d2mlDFUZwhHU85PfPW23a/3c992643911d04bd50eea3ffd0c52954/D-K146-prod" alt="Food 2" class="food-image">
-            <p>Veg Ginger Burger | ₹180</p>
-            <button class="add-to-cart" data-name="Mushroom Tikka" data-price="180"onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://www.kolkataweb.com/wp-content/uploads/nc/data/kfc/kfc-veg-strips-kfc8.png"alt="Food 2" class="food-image">
-            <p>Veg Strips | ₹150</p>
-            <button class="add-to-cart" data-name="Veggie Kebab" data-price="150"onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://www.licious.in/blog/wp-content/uploads/2022/09/Shutterstock_11203319452-750x750.jpg" alt="Food 4" class="food-image">
-            <p>Hot veg snacker | ₹80</p>
-            <button class="add-to-cart" data-name="Corn Chaat" data-price="80"onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2SmQlpfbrfai-FdUAOHOVT4yiMLs1YDnL6A&s">
-            <p>Veg kingkong box | ₹50</p>
-            <button class="add-to-cart"data-name="Gobi Manchurian" data-price="50" onclick="toggleCart(this)">Add to Cart</button>
-        </div>
+const nonVegItems = [
+  ["Zinger Burger", 180, "https://tse2.mm.bing.net/th?id=OIP.yZRKRNkRHx6s3-vuv-An4QHaFj&pid=Api&P=0&h=180"],
+  ["Chicken Bucket", 550, "https://tse2.mm.bing.net/th?id=OIP.ichwntZYBpyxXFNws_0F-gHaE7&pid=Api&P=0&h=180"],
+  ["Hot Wings", 160, "https://i.pinimg.com/originals/6e/c8/62/6ec862e2fbe50b6f7e624e802bb864e2.jpg"],
+  ["Popcorn Chicken", 150, "https://tse4.mm.bing.net/th?id=OIP.p9Ww2huDJxNR_GAIxjYEFgHaHa&pid=Api&P=0&h=180"],
+  ["Chicken Rice Bowl", 170, "https://tse4.mm.bing.net/th?id=OIP.pvNr8avfOkEz4Yvt9eEGRwHaKy&pid=Api&P=0&h=180"],
+  ["Chicken Wrap", 165, "https://www.licious.in/blog/wp-content/uploads/2020/12/Chicken-Wrap.jpg"],
+  ["Original Chicken Sandwich", 175, "https://staticg.sportskeeda.com/editor/2023/01/8f6b5-16731151086479-1920.jpg"],
+  ["Spicy Chicken Sandwich", 185, "https://tse3.mm.bing.net/th?id=OIP.5XdJzQFd4qPRYMQlQ8zSAQHaHa&pid=Api&P=0&h=180"],
+  ["Grilled Chicken", 210, "https://tse4.mm.bing.net/th?id=OIP.L4iE9-bXu4WnfcWB9uAOoQHaE7&pid=Api&P=0&h=180"],
+  ["Chicken Tenders", 160, "https://tse4.mm.bing.net/th?id=OIP.xfvb1_caKR10nZohjPGs_wHaHa&pid=Api&P=0&h=180"],
+  ["Chicken Salad Bowl", 140, "https://tse4.mm.bing.net/th?id=OIP.s2rD61Y6tY1LjNh42jrsNgHaGN&pid=Api&P=0&h=180"],
+  ["Chicken Popcorn Combo", 290, "https://tse1.mm.bing.net/th?id=OIP.NMSJ3ZdHOBR3npefCyF-BQHaJi&pid=Api&P=0&h=180"]
+];
+
+
+        function renderItems(items) {
+          return items.map(([name, price, image]) => `
+            <div class="food-item">
+              <img src="${image}" class="food-image" />
+              <p>${name} | ₹${price}</p>
+              <button class="add-to-cart" data-name="${name}" data-price="${price}" onclick="toggleCart(this)">Add to Cart</button>
+            </div>
+          `).join('');
+        }
+
+        document.write(renderItems(vegItems));
+      </script>
     </div>
+  </div>
 
-    <!-- Non-Veg Section -->
-    <p id="nonveg">Non-Veg</p>
-    <div class="nonveg-image-container">
-        <div class="food-item">
-            <img src="https://images.ctfassets.net/wtodlh47qxpt/2MisPscDV1k33qLnGwQ2il/14bdab6e4b9e25e1b91a8578df5097f2/CAT86" alt="Food 1" class="food-image">
-            <p>Chicken Buckets | ₹200</p>
-            <button class="add-to-cart"data-name="Chicken Spring Rolls" data-price="200" onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://brand-uk.assets.kfc.co.uk/2022-11/MOBORDER_REGULAR_POPCORN_CHICKEN_1200x800%20%281%29.jpg?VersionId=VAE2jIMrLpXQnCyzly8DcMQHV6RZ6Bpn" alt="Food 2" class="food-image">
-            <p>Chicken PopCorn | ₹250</p>
-            <button class="add-to-cart" data-name="Chicken Manchurian" data-price="250"onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://cdn.prod.website-files.com/657a7aac36df076237527e36/658e02cda7939e42519065e9_6584c1ed00a3c9810932e955_airfryerchickensandwich_youtube_dad_2.webp" alt="Food 3" class="food-image">
-            <p>Chicken Burger | ₹450</p>
-            <button class="add-to-cart" data-name="Meat Balls" data-price="450"onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://www.licious.in/blog/wp-content/uploads/2022/09/Shutterstock_11203319452-750x750.jpg" alt="Food 4" class="food-image">
-            <p>Chicken Strips | ₹120</p>
-            <button class="add-to-cart"data-name="Chicken Samosa" data-price="120" onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-        <div class="food-item">
-            <img src="https://i.ytimg.com/vi/3CVDrAkhDmI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAsuColMDtymCLwvjZPUJX3UGBsqg" alt="Food 5" class="food-image">
-            <p>Chicken Legpieces | ₹280</p>
-            <button class="add-to-cart"data-name="Chicken Majestic" data-price="280" onclick="toggleCart(this)">Add to Cart</button>
-        </div>
-
+  <!-- NON-VEG SECTION -->
+  <div class="section">
+    <div class="section-header nonveg-section-header">🍗 Non-Veg Items</div>
+    <div class="food-container">
+      <script>
+        document.write(renderItems(nonVegItems));
+      </script>
     </div>
-	
-	<div class="checkout">
-	        <button class="check-out" onclick="proceedToCheckout()">Proceed To Check Out</button>
-	    </div>
+  </div>
 
-			    
+  <div class="checkout">
+    <button class="check-out" onclick="proceedToCheckout()">Proceed To Check Out</button>
+  </div>
 
+  <script>
+    function toggleCart(button) {
+      if (button.innerText === 'Add to Cart') {
+        button.innerHTML = `
+          <div class="cart-controls">
+            <button onclick="decreaseCount(this)">-</button>
+            <span class="cart-count">1</span>
+            <button onclick="increaseCount(this)">+</button>
+          </div>
+        `;
+      }
+    }
 
-	<script>
-	    function toggleCart(button) {
-	        const currentButton = button;
-	        if (currentButton.innerText === 'Add to Cart') {
-	            currentButton.innerHTML = `
-	                <button onclick="decreaseCount(this)">-</button>
-	                <span class="cart-count">0</span>
-	                <button onclick="increaseCount(this)">+</button>
-	            `;
-	        }
-	    }
+    function decreaseCount(btn) {
+      const span = btn.nextElementSibling;
+      let count = parseInt(span.innerText);
+      if (count > 1) {
+        count--;
+        span.innerText = count;
+      } else {
+        const parent = btn.closest('.add-to-cart');
+        parent.innerHTML = 'Add to Cart';
+      }
+    }
 
-	    function decreaseCount(button) {
-	        const countSpan = button.nextElementSibling;
-	        let currentCount = parseInt(countSpan.innerText);
-	        
-	        // Decrease count if greater than 0
-	        if (currentCount > 0) {
-	            currentCount--;
-	            countSpan.innerText = currentCount;
-	        }
+    function increaseCount(btn) {
+      const span = btn.previousElementSibling;
+      let count = parseInt(span.innerText);
+      span.innerText = ++count;
+    }
 
-	        // If count reaches 0, revert to 'Add to Cart'
-	        if (currentCount === 0) {
-	            const parentButton = button.parentElement;
-	            parentButton.innerHTML = 'Add to Cart';
-	        }
-	    }
+    function proceedToCheckout() {
+      const items = [];
+      const buttons = document.querySelectorAll('.add-to-cart');
 
-	    function increaseCount(button) {
-	        const countSpan = button.previousElementSibling;
-	        let currentCount = parseInt(countSpan.innerText);
-	        currentCount++;
-	        countSpan.innerText = currentCount;
-	    }
-		
-		function proceedToCheckout() {
-		        const cartButtons = document.querySelectorAll('.add-to-cart');
-		        let cartItems = [];
+      buttons.forEach(btn => {
+        if (btn.innerText !== 'Add to Cart') {
+          const name = btn.getAttribute('data-name');
+          const price = parseInt(btn.getAttribute('data-price'));
+          const count = parseInt(btn.querySelector('.cart-count').innerText);
+          items.push({ name, quantity: count, price: price * count });
+        }
+      });
 
-		        cartButtons.forEach((button) => {
-		            let currentText = button.innerText;
-
-		            if (currentText !== 'Add to Cart') {
-		                let number = parseInt(currentText.match(/\d+/)[0]);
-		                let itemName = button.getAttribute('data-name');
-		                let itemPrice = parseInt(button.getAttribute('data-price')) * number; // Example: replace with actual price logic
-
-		                cartItems.push({ name: itemName, quantity: number, price: itemPrice});
-		            }
-		        });
-
-		        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-		        window.location.href = '/checkout'; // Redirect to the next page (checkout page)
-		    }
-	</script>
-	
-
-
+      localStorage.setItem('cartItems', JSON.stringify(items));
+    
+      window.location.href = '/checkout';
+    }
+  </script>
+  <footer>
+        <p>© 2025 YUMYARD. All rights reserved.</p>
+    </footer>
 </body>
 </html>
