@@ -13,7 +13,7 @@ services:
       - mysql_data:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -27,10 +27,11 @@ services:
       mysql-db:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/user
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: Geetha3230
-    # Optional, if you want to pass profiles or other env vars
+      - DB_HOST=mysql-db
+      - DB_NAME=user
+      - DB_USER=root
+      - DB_PASSWORD=Geetha3230
+      - SERVER_PORT=8081
 
 volumes:
   mysql_data:
